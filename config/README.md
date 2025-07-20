@@ -33,3 +33,15 @@ The `start_iperf_client.sh` script connects to the `iperf` server and initiates 
 
 - Adjust the parameters in the client script as needed to customize the bandwidth test (e.g., duration, bandwidth).
 - Monitor the output of the `iperf` server to analyze the performance metrics during the test.
+
+## Autores
+
+*   **Adonias Junior de ALbuquerque Mattos** -
+*   **Hugo Samuel Guedes de Oliveira** -
+*   **Matheus Dutra Sarmento** -
+*Desenvolvimento e Simulação* - [Link para seu GitHub](https://github.com/MiCaptain)
+
+## Agradecimentos
+
+*   Agradecimentos à comunidade Mininet/Containernet por fornecer as ferramentas de simulação.
+*   Aos professores Doutores Leandro Cavalcanti de Almeida e Paulo Ditarso Maciel Júnior, docentes da PPGTI e PPGEE respectivamente.

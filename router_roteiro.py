@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""
+Simulação de Rede com QoS Dinâmico
+Autor: [Seu Nome]
+Data: 20 de Julho de 2025
+"""
 from mininet.net import Mininet
 from mininet.node import Node
 from mininet.cli import CLI
