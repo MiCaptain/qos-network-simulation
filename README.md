@@ -59,3 +59,15 @@ Após a instalação, o ambiente está pronto.
     ```
 3.  Abra o arquivo `runner.ipynb` no seu navegador.
 4.  Execute as células do notebook para iniciar as simulações. As células são autoexplicativas e permitem rodar o cenário simples ou o cenário completo com QoS dinâmico.
+
+## Autores
+
+*   **Adonias Junior de ALbuquerque Mattos** -
+*   **Hugo Samuel Guedes de Oliveira** -
+*   **Matheus Dutra Sarmento** -
+*Desenvolvimento e Simulação* - [Link para seu GitHub](https://github.com/MiCaptain)
+
+## Agradecimentos
+
+*   Agradecimentos à comunidade Mininet/Containernet por fornecer as ferramentas de simulação.
+*   Aos professores Doutores Leandro Cavalcanti de Almeida e Paulo Ditarso Maciel Júnior, docentes da PPGTI e PPGEE respectivamente.

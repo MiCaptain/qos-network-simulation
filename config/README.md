@@ -1,47 +1,32 @@
-# Background Traffic Scripts for Network Performance Testing
+# Scripts de Configuração de Clientes
 
-This directory contains scripts to generate background traffic using `iperf`, a tool for measuring network bandwidth.
+Este diretório contém scripts shell auxiliares que são executados pelos nós clientes dentro da simulação do Containernet.
 
-## Overview
+## Visão Geral
 
-The `start_iperf_server.sh` script sets up an `iperf` server that listens for incoming connections from clients. This allows you to measure the bandwidth between the server and any connected clients.
+Cada script (`cXX_config_sd.sh`) é responsável por iniciar um cliente `iperf` para gerar tráfego de fundo (eMBB) em direção a um servidor na rede.
 
-The `start_iperf_client.sh` script connects to the `iperf` server and initiates a bandwidth test. This can be used to simulate network traffic and evaluate the performance of your network setup.
+Esses scripts **não são feitos para serem executados manualmente**. Eles são chamados pelo script de simulação principal (`router_roteiro.py`) no momento apropriado.
 
-## Usage
+## Scripts e Parâmetros
 
-1. **Starting the iperf Server:**
-   - Run the `start_iperf_server.sh` script on the server container to start the `iperf` server.
-   - Example command:
-     ```bash
-     ./start_iperf_server.sh
-     ```
+O principal script de cliente é o `cXX_config_sd.sh`. Ele aceita os seguintes parâmetros:
 
-2. **Starting the iperf Client:**
-   - Run the `start_iperf_client.sh` script on the client container to connect to the `iperf` server and start the test.
-   - Example command:
-     ```bash
-     ./start_iperf_client.sh
-     ```
+1.  `IP_DO_SERVIDOR`: O endereço IP do servidor `iperf` de destino.
+2.  `DURACAO`: O tempo em segundos que o teste de tráfego deve durar.
+3.  `LARGURA_BANDA`: A largura de banda a ser gerada (ex: `100M` para 100 Mbits/s).
+4.  `PORTA`: A porta na qual o servidor `iperf` está escutando.
 
-## Requirements
+### Exemplo de Uso (dentro da simulação)
 
-- Ensure that `iperf` is installed on both the server and client containers.
-- The server must be reachable from the client container over the network.
+A simulação principal invoca este script da seguinte forma:
 
-## Notes
+```bash
+# Exemplo de como o cliente03 é instruído a iniciar o tráfego
+cliente03 bash config/c03_config_sd.sh 172.31.0.2 600 100M 5001
+```
 
-- Adjust the parameters in the client script as needed to customize the bandwidth test (e.g., duration, bandwidth).
-- Monitor the output of the `iperf` server to analyze the performance metrics during the test.
+## Requisitos
 
-## Autores
-
-*   **Adonias Junior de ALbuquerque Mattos** -
-*   **Hugo Samuel Guedes de Oliveira** -
-*   **Matheus Dutra Sarmento** -
-*Desenvolvimento e Simulação* - [Link para seu GitHub](https://github.com/MiCaptain)
-
-## Agradecimentos
-
-*   Agradecimentos à comunidade Mininet/Containernet por fornecer as ferramentas de simulação.
-*   Aos professores Doutores Leandro Cavalcanti de Almeida e Paulo Ditarso Maciel Júnior, docentes da PPGTI e PPGEE respectivamente.
+-   O `iperf` deve estar instalado na imagem base dos nós (o que já é o caso nos hosts padrão do Mininet).
+-   Um servidor `iperf` deve estar em execução no IP e porta de destino para que o cliente possa se conectar.
