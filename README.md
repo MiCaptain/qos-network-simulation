@@ -70,4 +70,4 @@ Após a instalação, o ambiente está pronto.
 ## Agradecimentos
 
 *   Agradecimentos à comunidade Mininet/Containernet por fornecer as ferramentas de simulação.
-*   Aos professores Doutores Leandro Cavalcanti de Almeida e Paulo Ditarso Maciel Júnior, docentes da PPGTI e PPGEE respectivamente.
+*   Aos professores Doutores Leandro Cavalcanti de Almeida e Paulo Ditarso Maciel Júnior, docentes da IFPB/ PPGTI e PPGEE respectivamente.
