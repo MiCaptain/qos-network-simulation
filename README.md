@@ -62,10 +62,10 @@ Após a instalação, o ambiente está pronto.
 
 ## Autores
 
-*   **Adonias Junior de ALbuquerque Mattos** -
+*   **Adonias Junior de ALbuquerque Mattos** - *Desenvolvimento e Simulação* - [MiCaptain](https://github.com/MiCaptain)
 *   **Hugo Samuel Guedes de Oliveira** -
 *   **Matheus Dutra Sarmento** -
-*Desenvolvimento e Simulação* - [Link para seu GitHub](https://github.com/MiCaptain)
+
 
 ## Agradecimentos
 
