@@ -18,9 +18,9 @@ Siga estes passos para configurar o ambiente de simulação.
 É **crucial** usar a flag `--recurse-submodules` para baixar também a dependência do Containernet.
 
 ```bash
-git clone --recurse-submodules https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git
-cd SEU-REPOSITORIO
-```
+git clone --recurse-submodules https://github.com/MiCaptain/qos-network-simulation.git
+cd qos-network-simulation
+``` 
 > **Nota:** Se você já clonou o repositório sem a flag, execute `git submodule update --init --recursive` de dentro do diretório do projeto.
 
 ### 2. Configurar o Ambiente Python
