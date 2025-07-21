@@ -28,6 +28,10 @@ cd qos-network-simulation
 Usamos um ambiente virtual para isolar as dependências do Python.
 
 ```bash
+
+# Instalar venv
+sudo apt install python3.12-venv
+
 # Criar o ambiente virtual
 python3 -m venv venv
 
@@ -36,6 +40,9 @@ source venv/bin/activate
 
 # Instalar os pacotes necessários
 pip install -r requirements.txt
+
+# Instalar dependencias do sistema
+sudo apt install mininet docker.io openvswitch-switch openvswitch-testcontroller python3-tk
 ```
 
 ### 3. Instalar Dependências do Containernet
@@ -53,11 +60,8 @@ cd ../..
 Após a instalação, o ambiente está pronto.
 
 1.  Certifique-se de que seu ambiente virtual está ativo (`source venv/bin/activate`).
-2.  Inicie o Jupyter Lab:
-    ```bash
-    jupyter-lab
-    ```
-3.  Abra o arquivo `runner.ipynb` no seu navegador.
+2.  Abra o arquivo `runner.ipynb`.
+3.  Clique em select kernel, python environments, venv (Python 3.XX.X).
 4.  Execute as células do notebook para iniciar as simulações. As células são autoexplicativas e permitem rodar o cenário simples ou o cenário completo com QoS dinâmico.
 
 ## Autores
