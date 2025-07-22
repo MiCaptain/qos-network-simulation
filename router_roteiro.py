@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 Simulação de Rede com QoS Dinâmico
-Autor: [Seu Nome]
+Autores: Adonias Junior de Albuquerque Mattos
+         Hugo Samuel Guedes de Oliveira
+         Matheus Dutra Sarmento
 Data: 20 de Julho de 2025
 """
 from mininet.net import Mininet
@@ -247,16 +249,15 @@ def remover_filas(net):
     'r4-r2', 'r4-s4',
     's5-r5', 'r5-s6']
     for r in ['r1', 'r2', 'r3', 'r4', 'r5']:
-        info(f'*** Removendo filas e filtros do roteador {r}...\n')
+        #info(f'*** Removendo filas e filtros do roteador {r}...\n')
         net[r].cmd('tc qdisc del dev lo root')
         for intf in net[r].intfNames():
             if intf in interfaces:
                 net[r].cmd(f'tc qdisc del dev {intf} root')
                 net[r].cmd(f'tc filter del dev {intf} root')
                 net[r].cmd(f'tc filter del dev {intf} ingress')
-                info(f'Fila e filtros removidos de {intf}\n')
-            else:
-                info(f'Fila não encontrada em {intf}\n')
+                #info(f'Fila e filtros removidos de {intf}\n')
+                
     info('*** Removendo filas e filtros dos switches...\n')
     for s in ['s1', 's2', 's3', 's4', 's5', 's6']:
         net[s].cmd('tc qdisc del dev lo root')
@@ -273,7 +274,7 @@ def remover_filas(net):
             net[c].cmd(f'tc qdisc del dev {intf} root')
             net[c].cmd(f'tc filter del dev {intf} root')
             net[c].cmd(f'tc filter del dev {intf} ingress')
-            info(f'Fila e filtros removidos de {intf}\n')
+            #info(f'Fila e filtros removidos de {intf}\n')
 
 def run():
     "Executa a topologia Mininet com hosts Docker."
@@ -373,6 +374,10 @@ def run():
     info('*** Iniciando monitoramento de latência URLLC...\n')
     monitor_thread = threading.Thread(target=monitorar_flag, args=(net,), daemon=True)
     monitor_thread.start()
+
+    info('*** Use o comando cliente01 bash config/c01_config_sd.sh 172.30.0.2 30 10M 5001\n')
+    info('*** Assim o trafego de fundo no cliente 01 ira iniciar, oque deve sobrecarregar\n')
+    info('*** a largura de banda pre-programada (10M) e gerar aumento da latencia no grafico.\n')
  
     CLI(net)
     remover_filas(net)

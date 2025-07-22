@@ -40,21 +40,22 @@ source venv/bin/activate
 
 # Instalar os pacotes necessários
 pip install -r requirements.txt
-
-# Instalar dependencias do sistema
-sudo apt install mininet docker.io openvswitch-switch openvswitch-testcontroller python3-tk
 ```
 
-### 3. Instalar Dependências do Containernet
+### 3. Instalar Dependências do Containernet e Sistema
 
 O Containernet utiliza um script Ansible para instalar suas próprias dependências no sistema.
 
 ```bash
+sudo apt install ansible-core
 cd containernet/ansible
 sudo ansible-playbook -i "localhost," -c local install.yml
 cd ../..
-```
 
+# Instalar dependencias do sistema
+sudo apt install mininet openvswitch-switch openvswitch-testcontroller python3-tk
+sudo docker.io # Se houver conflito, deve haver, ignore.
+```
 ## Execução
 
 Após a instalação, o ambiente está pronto.
@@ -66,7 +67,7 @@ Após a instalação, o ambiente está pronto.
 
 ## Autores
 
-*   **Adonias Junior de ALbuquerque Mattos** - *Desenvolvimento e Simulação* - [MiCaptain](https://github.com/MiCaptain)
+*   **Adonias Junior de Albuquerque Mattos** - *Desenvolvimento e Simulação* - [MiCaptain](https://github.com/MiCaptain)
 *   **Hugo Samuel Guedes de Oliveira** -
 *   **Matheus Dutra Sarmento** -
 
