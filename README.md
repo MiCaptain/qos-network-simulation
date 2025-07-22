@@ -15,7 +15,7 @@ Siga estes passos para configurar o ambiente de simulação.
 
 ### 1. Clonar o Repositório
 
-É **crucial** usar a flag `--recurse-submodules` para baixar também a dependência do Containernet.
+Usar a flag `--recurse-submodules` para baixar também a dependência do Containernet.
 
 ```bash
 git clone --recurse-submodules https://github.com/MiCaptain/qos-network-simulation.git
@@ -54,7 +54,7 @@ cd ../..
 
 # Instalar dependencias do sistema
 sudo apt install mininet openvswitch-switch openvswitch-testcontroller python3-tk
-sudo docker.io # Se houver conflito, deve haver, ignore.
+sudo docker.io - Se houver conflito, deve haver, ignore.
 ```
 ## Execução
 
@@ -64,8 +64,19 @@ Após a instalação, o ambiente está pronto.
 2.  Abra o arquivo `runner.ipynb`.
 3.  Clique em select kernel, python environments, venv (Python 3.XX.X).
 4.  Execute as células do notebook para iniciar as simulações. As células são autoexplicativas e permitem rodar o cenário simples ou o cenário completo com QoS dinâmico.
+5.  A configuração inicial força uma largura de banda de 10M em todos os roteadores, então qualquer valor proximo ou acima disso deve gerar aumento significativo na latencia.
+6.  cliente01 bash config/c01_config_sd.sh 172.30.0.2 30 10M 5001 - IP Duração Banda Porta
 
-## Autores
+## Resultado esperado
+
+Ao aplicar uma banda de 10M do cliente01 sentido servidor01 os roteadores ficam saturados, oque dispara uma flag monitorada, essa ação por sua vez ativa a priorização da porta 5002,
+por aonde passa o trafego urllc e gera a diminuição da latencia.
+
+![Logo Mininet](https://github.com/MiCaptain/qos-network-simulation/blob/main/latency_graph_10M_bt.png)
+
+
+
+## Autores - Discentes do programa de Mestrado da PPGEE IFPB Campus João Pessoa
 
 *   **Adonias Junior de Albuquerque Mattos** - *Desenvolvimento e Simulação* - [MiCaptain](https://github.com/MiCaptain)
 *   **Hugo Samuel Guedes de Oliveira** -
